@@ -12,5 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
 });
+
+Route::get("/home", array(
+    "as" => "home",
+    "uses" => "HomeController@homeViewing"
+));
+
+Route::get("/wallets", array(
+    "as" => "wallets",
+    "uses" => "WalletsController@walletsViewing"
+));
+
+Route::get("/orders", array(
+    "as" => "orders",
+    "uses" => "OrdersController@ordersViewing"
+));
+
+Route::get("/profil", array(
+    "as" => "profil",
+    "uses" => "ProfilController@profilViewing"
+));
+
