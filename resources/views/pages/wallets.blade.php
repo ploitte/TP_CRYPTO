@@ -52,6 +52,7 @@
             <div class="continput">
                 <img src="img/reload.png" class="reload">
                 <input class="inputNewWallet" type="text" value="Generate a new address..." disabled>
+                <img src="img/like.png" class="isGood">
             </div>
             <input type="submit" value="confirm">
     </div>

@@ -16,8 +16,10 @@
         @yield("content")
     </div>
     
-    @include("includes.footer")
-<script src="js/jquery.js"></script>
+    {{--  @include("includes.footer")  --}}
+<script src="libs/jquery.js"></script>
+<script src="libs/hash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/md5.js"></script>
 <script src="js/master.js"></script>
 </body>
 </html>

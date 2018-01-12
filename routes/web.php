@@ -11,27 +11,36 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get("/", array(
+    "as" => "profil",
+    "uses" => "Controller@defaultRedirect"
+));
 
 Route::get("/home", array(
     "as" => "home",
     "uses" => "HomeController@homeViewing"
-));
+))->middleware("auth");
 
 Route::get("/wallets", array(
     "as" => "wallets",
     "uses" => "WalletsController@walletsViewing"
-));
+))->middleware("auth");
 
 Route::get("/orders", array(
     "as" => "orders",
     "uses" => "OrdersController@ordersViewing"
-));
+))->middleware("auth");
 
 Route::get("/profil", array(
     "as" => "profil",
     "uses" => "ProfilController@profilViewing"
+))->middleware("auth");
+
+
+Route::get("/logout",array(
+    "as" => "logout",
+    "uses" =>"Controller@logoutUser"
 ));
+
+Auth::routes();
 

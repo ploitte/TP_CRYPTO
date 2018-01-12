@@ -11,6 +11,10 @@
         <a class="{{$name === 'profil' ? 'active' : ''}}" href="{{url('profil')}}">Profil</a>
 
     </div>
+    <a id="linkLogout" href="{{route('logout')}}">
+        <img src="img/logout.png" id="logout">
+    </a>
+    
 
 </header>
 
