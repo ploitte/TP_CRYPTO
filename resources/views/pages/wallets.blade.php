@@ -8,61 +8,95 @@
         <div class="estimated">
            Estimated Value: 0.00000000BTC/0.00$
         </div>
+    
+        <table id="contAllWallets">
 
-        <div class="wallet titlecolor">
-            <div class="coin walletWith">
-                <span>Coin</span>
-            </div>
-            <div class="name walletWith">
-                <span>Name</span>
-            </div>  
-            <div class="balance walletWith">
-                <span>Total Balance</span>
-            </div>
-            <div class="btcValue walletWith">
-                <span>Btc Value</span>
-            </div>
-        </div>
+            <tr id="titleWallets">
+                <td class="itemsWallet">Coin</td>
+                <td class="itemsWallet">Name</td>
+                <td class="itemsWallet">Total Balance</td>
+                <td class="itemsWallet">Btc Value</td>
+                <td class="addTd"></td>
+                <td class="addTd"></td>
+            </tr>
 
-        <div class="wallet allwallet">
+            
+            @foreach($cryptos as $crypto)
 
-                <div class="coin walletWith">
-                    <span>BTC</span>
-                </div>
-                <div class="name walletWith">
-                    <span>BITCOIN</span>
-                </div>  
-                <div class="balance walletWith">
-                    <span>0.00000123</span>
-                </div>
-                <div class="btcValue walletWith">
-                    <span>0.00000123</span>
-                </div>
+                <tr class="walletUser">
 
-                <img src="img/add.png" class="addAdress">
-                <img src="img/send.png" class="sendFunds"> 
-        </div>
+                    <td class="itemsWallet">{{$crypto->symbol}}</td>
+                    <td class="itemsWallet">{{$crypto->name}}</td>
+                    
+                    @empty($wallets)
+                        <td class="itemsWallet">0.0000000</td>
+                        <td class="itemsWallet">0.0000000</td>
+                    @endempty
+
+                    @isset($wallets)     
+                            @foreach($wallets as $wallet)  
+                                @if($loop->count == $loop->parent->count)
+                                    @if($crypto->symbol == $wallet->name)
+                                        <td class="itemsWallet">{{$wallet->funds}}</td>
+                                        <td class="itemsWallet">{{$wallet->funds}}</td>                               
+                                    @endif
+                                @elseif($loop->count < $loop->parent->count)
+                                    @if($crypto->symbol == $wallet->name)
+                                        <td class="itemsWallet">{{$wallet->funds}}</td>
+                                        <td class="itemsWallet">{{$wallet->funds}}</td>                               
+                                    @else
+                                        <td class="itemsWallet">0.000000000</td>
+                                        <td class="itemsWallet">0.00000000</td>      
+                                    @endif                              
+                                @endif
+                            @endforeach
+                    @endisset
+
+                    <td class="addTd">
+                        <img src="img/add.png" class="addAdress">
+                    </td>
+                    <td class="addTd">
+                        <img src="img/send.png" class="sendFunds">
+                    </td>
+                </tr> 
+
+            @endforeach
+
+        </table>
+
     </div>
+
+    
 
 
     <div id="popupAddWallet">
             <img src="img/close.png" class="close">
 
-            <span>New wallet:</span>
-            <div class="continput">
-                <img src="img/reload.png" class="reload">
-                <input class="inputNewWallet" type="text" value="Generate a new address..." disabled>
-                <img src="img/like.png" class="isGood">
-            </div>
-            <input type="submit" value="confirm">
+            {{Form::open(array(
+                "route" => "newWallet",
+                "method" => "post"
+            ))}}
+
+            {{Form::text("wallet", "", array(
+                "class" => "walletTest",
+                "placeholder" => "GET A NEW WALLET",
+                "disabled" => "disabled"
+            ))}}
+
+            {{Form::close()}}
+                 
+            <img src="img/reload.png" class="reload">
+            <img src="img/like.png" class="isGood">
+
     </div>
 
-    <div id="popupShowWallet">
+<!--
+    <div id="popupSend">
+        <img src="img/close.png" class="close">
 
-    </div>
+        <span>Amout:</span>
+        <input type="text">
 
-    <div class="popupSend">
-
-    </div>
+    </div>-->
 
 @endsection

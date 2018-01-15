@@ -141,6 +141,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -163,6 +164,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -191,6 +193,26 @@ return [
     */
 
     'aliases' => [
+        //Custom alias
+
+        //Other
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+
+        //Repo
+        "BaseRepo" => App\Repositories\BaseRepository::class,
+        "DbRepo" => App\Repositories\DbBaseReepository::class,
+        'CryptoRepo' => App\Repositories\CryptoRepository::class,
+        'OrderRepo' => App\Repositories\OrderRepository::class,
+        'WalletRepo' => App\Repositories\WalletRepository::class,
+        // 'UserRepo' => App\Repositories\WalletRepository::class,
+
+        //Models
+        'CryptoModel' => App\Crypto::class,
+        'OrderModel' => App\Order::class,
+        'WalletModel' => App\Wallet::class,
+        'UserModel' => App\User::class,
+
 
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

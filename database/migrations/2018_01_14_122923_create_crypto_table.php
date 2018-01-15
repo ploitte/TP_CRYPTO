@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWalletTable extends Migration
+class CreateCryptoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateWalletTable extends Migration
      */
     public function up()
     {
-        Schema::create('wallets', function (Blueprint $table) {
+        Schema::create('cryptos', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer("user_id");
-            $table->string("wallet");
-            $table->string("funds")->default("0.00000000");
+            $table->string("symbol", 3);
             $table->string("name");
-            $table->timestamps();
+            $table->string("currentPrice")->default("0");
         });
     }
 
@@ -30,6 +28,6 @@ class CreateWalletTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wallets');
+        Schema::dropIfExists('cryptos');
     }
 }

@@ -1,20 +1,20 @@
 
 
 $(document).ready(function(){
-    console.log("OK MY FRIEND");
+        getPrices();
+    setInterval(function(){
+        getPrices();
+    }, 10000)
 })
 
 $(".addAdress").click(function(){
-
     $("#popupAddWallet").css("top", "0");
-    console.log("test");
 });
 
 
 $(".close").click(function(){
 
     $parent = $(this).parent();
-
     $parent.css("top", "-100%");
 
 });
