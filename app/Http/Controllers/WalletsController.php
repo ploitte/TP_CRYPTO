@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\WalletRequest;
+use Illuminate\Support\Facades\Validator;
 use CryptoModel;
 use WalletModel;
 use WalletRepo;
@@ -21,7 +23,7 @@ class WalletsController extends Controller
     }
 
     public function walletsviewing(Request $request){
-
+        
         $user = Auth::user();
         $name = $request -> route() -> getName();
         $cryptos = $this->cryptoRepo->getAll();
@@ -37,11 +39,22 @@ class WalletsController extends Controller
         ]);
     }
 
-    public function newWalletForm(){
 
+    public function newWalletService(WalletRequest $request){
 
-        return redirect()->route("wallet");
+        $user = Auth::user();
+        $r = $request->input("wallet");
+
+        $this->walletRepo->createWallet(array(
+            "user_id" => $user->id,
+            "wallet" => $r,
+            "funds" => "0.00000000",
+            "name" => "BTC"
+        ));
+
+        return redirect()->route("wallets");
     }
+
 
 
 }

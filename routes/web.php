@@ -43,9 +43,9 @@ Route::get("/logout",array(
 ));
 
 
-Route::get("/newWallet", array(
+Route::post("/newWallet", array(
     "as" => "newWallet",
-    "uses" => "WalletController@newWalletForm"
+    "uses" => "WalletsController@newWalletService"
 ));
 
 Auth::routes();

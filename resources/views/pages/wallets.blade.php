@@ -72,21 +72,40 @@
     <div id="popupAddWallet">
             <img src="img/close.png" class="close">
 
-            {{Form::open(array(
-                "route" => "newWallet",
-                "method" => "post"
-            ))}}
+            @empty($wallets)
 
-            {{Form::text("wallet", "", array(
-                "class" => "walletTest",
-                "placeholder" => "GET A NEW WALLET",
-                "disabled" => "disabled"
-            ))}}
+                {{Form::open(array(
+                    "route" => "newWallet",
+                    "class" => "newWalletForm"
+                ))}}
+                <span>New Wallet:</span>
+                
+                <div class="contInputNewWallet">
+
+                    <img src="img/reload.png" class="reload">
+
+                    {{Form::text("walletHidden", "", array(
+                        "class" => "inputNewWallet",
+                        "placeholder" => "Get a new Wallet...",
+                        "disabled" => "disabled"
+                    ))}}
+
+                    {{Form::hidden("wallet", "", array(
+                        "class" => "inputNewWalletHidden",
+                        "placeholder" => "Get a new Wallet...",
+                    ))}}
+
+                </div>
+
+                {{Form::button("Confirm", array(
+                    "type" => "submit",
+                    "class" => "subNewWallet"
+                ))}}
 
             {{Form::close()}}
                  
-            <img src="img/reload.png" class="reload">
-            <img src="img/like.png" class="isGood">
+            @endempty
+            
 
     </div>
 

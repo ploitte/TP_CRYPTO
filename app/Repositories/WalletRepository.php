@@ -18,4 +18,8 @@ class WalletRepository extends DbBaseReepository{
         return DB::select("SELECT * FROM wallets WHERE user_id = $id_user");
     }
 
+    public function createWallet(array $attributes){
+        DB::table("wallets")->insert($attributes);
+    }
+
 }

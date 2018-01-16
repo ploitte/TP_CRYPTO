@@ -7,8 +7,11 @@ $(document).ready(function(){
     }, 10000)
 })
 
-$(".addAdress").click(function(){
+$(".addAdress").click(function(target){
     $("#popupAddWallet").css("top", "0");
+
+
+
 });
 
 
@@ -24,8 +27,7 @@ $(".reload").click(function(){
 
     $randomString = randomString(10);
 
-    $input = $(".inputNewWallet").val(SHA256($randomString));
-
-    console.log(SHA256($randomString));
+    $(".inputNewWallet").val(SHA256($randomString));
+    $(".inputNewWalletHidden").val(SHA256($randomString));
 
 });
