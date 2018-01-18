@@ -12,6 +12,6 @@ class UserSeeder extends Seeder
     public function run()
     {
        UserModel::truncate();
-       UserModel::create(array("name"=>"laxa", "email" => "lucrosinol@gmail.com", "password" => "password", "remember_token" => "iosdkjffsdfkjolshf"));
+       UserModel::create(array("name"=>"laxa", "email" => "lucrosinol@gmail.com", "password" => bcrypt("password"), "remember_token" => "iosdkjffsdfkjolshf"));
     }
 }

@@ -1,0 +1,25 @@
+/*********** Alfonso commentaires *************/
+
+Lucas bien joué pour ce projet crypto que tu n'as pas pu finaliser mais qui néanmoins montre que tu t'es bougé le cul.
+
+Tain et au départ tu avais l'air paumé! En tout cas bravo pour ce come back...
+
+Tu as pu faire les migrations et des seeds (que la moitié de la classe n'a pas su/voulu faire) Tu as pigé qu'il fallait faire
+des entités wallet, order voir même Crypto.
+
+Tu as pigé qu'on pouvait faire plusieurs contrôlleur et finalement tu as pu faire un repository voir deux.
+
+Par contre effectivement je pense qu'il t'aurait fallu un peu plus de temps pour assimiler la chose afin de faire des requêtes
+dans ces même repos et le retranscrire dan les templates. Dômmage mais au moins t'as taffé mec.
+
+Je pense que tu as beaucoup de potentiel bien que tu as du mal à te concentrer des fois. Si tu continues comme ça je pense
+que tu pourrais être un bon dev mais tu vas devoir quand même cravacher un peu.
+
+J'espère que tu ferras un stage qui te fera travailler davantage. En espérant également que tu as pu apprécier tes propres progrès.
+
+En attendant que tu ais toi aussi ta ferme. Je viendrai vous voir toi et Yohann pour voir votre perf.
+
+À bientôt j'espère Laxa. LOL
+
+
+
